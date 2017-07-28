@@ -79,103 +79,213 @@
 
 $(document).ready(function(){
 
-    var op;
+    var finalVal = 0;
+    var opEr;
     var opPress = false; 
-
+    var numOne;
+    var numTwoText;
+    var numOneText;
+    var numTwo;
     //1 was pressed
     $("#button-1").on("click", function() {
-        $("#first-number").append(1);
+        if (opPress === false) {
+            $("#first-number").append(1);
+        }
+        else{
+            $("#second-number").append(1);
+        }
     });
 
     //2 was pressed
     $("#button-2").on("click", function() {
-        $("#first-number").append(2);
+        if (opPress == false) {
+            $("#first-number").append(2);
+        }
+        else{
+            $("#second-number").append(2);
+        }
+
     });
 
     //3 was pressed
     $("#button-3").on("click", function() {
-        $("#first-number").append(3);
+        if (opPress == false) {
+            $("#first-number").append(3);
+        }
+        else{
+            $("#second-number").append(3);
+        }
+
     });
 
     //4 was pressed
     $("#button-4").on("click", function() {
-        $("#first-number").append(4);
+        if (opPress == false) {
+            $("#first-number").append(4);
+        }
+        else{
+            $("#second-number").append(4);
+        }
+
     });
 
     //5 was pressed
     $("#button-5").on("click", function() {
-        $("#first-number").append(5);
+        if (opPress == false) {
+            $("#first-number").append(5);
+        }
+        else{
+            $("#second-number").append(5);
+        }
+
     });
 
     //6 was pressed
     $("#button-6").on("click", function() {
-        $("#first-number").append(6);
+        if (opPress == false) {
+            $("#first-number").append(6);
+        }
+        else{
+            $("#second-number").append(6);
+        }
+
     });
 
     //7 was pressed
     $("#button-7").on("click", function() {
-        $("3first-number").append(7);
+        if (opPress == false) {
+            $("#first-number").append(7);
+        }
+        else{
+            $("#second-number").append(7);
+        }
+
     });
 
     //8 was pressed
     $("#button-8").on("click", function() {
-        $("#first-number").append(8);
+        if (opPress == false) {
+            $("#first-number").append(8);
+        }
+        else{
+            $("#second-number").append(8);
+        }
+
     });
 
     //9 was pressed
     $("#button-9").on("click", function() {
-        $("#first-number").append(9);
+        if (opPress == false) {
+            $("#first-number").append(9);
+        }
+        else{
+            $("#second-number").append(9);
+        }
+
     });
 
     //0 was pressed
     $("#button-0").on("click", function() {
-        $("#first-number").append(0);
+        if (opPress == false) {
+            $("#first-number").append(0);
+        }
+        else{
+            $("#second-number").append(0);
+        }
+
     });
 
     //+ was pressed
     $("#button-plus").on("click", function(){
-        $("#operator").replaceWith('+');
+        $("#operator").empty();
+        $("#operator").append('+');
         opPress = true;
         opEr = '+';
+        numOneText = document.querySelector("#first-number").textContent;
+        numOne = parseInt(numOneText);
     });
 
     //- was pressed
     $("#button-minus").on("click", function(){
-        $("#operator").replaceWith('-');
+        $("#operator").empty();
+        $("#operator").append('-');
         opPress = true;
         opEr = '-';
+        numOneText = document.querySelector("#first-number").textContent;
+        numOne = parseInt(numOneText);
     });
 
     //x was pressed
     $("#button-multiply").on("click", function(){
-        $("#operator").replaceWith('*');
+        $("#operator").empty();
+        $("#operator").append("*");
         opPress = true;
-        opEr = '*';
+        opEr = "*";
+        numOneText = document.querySelector("#first-number").textContent;
+        numOne = parseInt(numOneText);
     });
 
     //% was pressed
     $("#button-divide").on("click", function(){
-        $("#operator").replaceWith('%');
+        $("#operator").empty();
+        $("#operator").append('%');
         opPress = true;
         opEr = '%';
+        numOneText = document.querySelector("#first-number").textContent;
+        numOne = parseInt(numOneText);
     });
 
     $("#button-power").on("click", function(){
-        $("#operator").replaceWith('^');
+        $("#operator").empty();
+        $("#operator").append('^');
         opPress = true;
         opEr = '^';
+        numOneText = document.querySelector("#first-number").textContent;
+        numOne = parseInt(numOneText);
     });
 
     //= was pressed
     $("#button-equal").on("click", function(){
-        
+        numTwoText = document.querySelector("#second-number").textContent;
+        console.log(numTwoText);
+        numTwo = parseInt(numTwoText);
+        console.log(numTwo);
+        equals();
     });
 
-    $("$button-clear").on("click", function() {
-
+    $("#button-clear").on("click", function() {
+        $("#first-number").empty();
+        $("#second-number").empty();
+        $("#operator").empty();
+        $("#result").empty();
+        opEr = "";
+        opPress = false;
     }); 
 
+function equals(){
+        if(opEr=="+")
+        {
+            finalVal = numOne + numTwo;
+        }
+        else if(opEr=="-"){
+            finalVal = numOne - numTwo;
+        }
+        else if (opEr == "^") {
+            finalVal = Math.pow(numOne,numTwo);
+        }
+        else if(opEr == "*")
+        {
+            finalVal = numOne * numTwo;
+        }
+        else if(opEr == "%"){
+            finalVal = numOne / numTwo;
+        }
+        else
+        {
 
+        }
+        $("#result").append(finalVal);
+};
 
 });
 
